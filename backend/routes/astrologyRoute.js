@@ -9,7 +9,7 @@ router.post("/send-message", async (req, res) => {
     const { DOB, TOB, POB, number, name, email, message } = req.body;
 
   
-  
+  const data=await AstrologyData.create(req.body)
 
     var transport = nodemailer.createTransport({
       host: 'smtp.gmail.com',

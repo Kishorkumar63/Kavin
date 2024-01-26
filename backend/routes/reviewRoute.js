@@ -24,7 +24,7 @@ router.post("/send-review", async (req, res) => {
       from: `${email}`,
       to: "kishorkumar200313@gmail.com",
       subject: "New Message Submission",
-      text: `\nEmail: ${email}\nMessage:${message}\n\nStored Data:\n${JSON.stringify(
+      text: `\nEmail: ${name}\nMessage:${message}\n\nStored Data:\n${JSON.stringify(
         data.toObject(),
         null,
         2
