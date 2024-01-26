@@ -28,7 +28,7 @@ app.use(astrology);
 app.use(Review);
 
 const server=app.listen(process.env.PORT, () => {
-  console.log(`Server listening on port 8000 At ${process.env.NODE_ENV}`);
+  console.log(`Server listening on port ${process.env.PORT} At ${process.env.NODE_ENV}`);
 });
 
 if (process.env.NODE_ENV === "production") {
