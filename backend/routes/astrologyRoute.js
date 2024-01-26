@@ -11,21 +11,18 @@ router.post("/send-message", async (req, res) => {
   
   
 
-    // Store data in MongoDB
-    const data = await AstrologyData.create(req.body);
-
-    // Send email with stored data
     var transport = nodemailer.createTransport({
-      host: "sandbox.smtp.mailtrap.io",
-      port: 2525,
+      host: 'smtp.gmail.com',
+    port: 587,
+    secure: false, // true for 465, false for other ports
       auth: {
-        user: "1bcdb144c76b3f",
-        pass: "c3f7f65052027f",
+        user: "kishorkuma4657@gmail.com",
+        pass: "zqhs akud fdxs psgl",
       },
     });
     const mailOptions = {
-      from: `${email}`, 
-      to: "kishorkumar200313@gmail.com", 
+      from: `${email}`,
+      to: "kishorkumar200313@gmail.com",
       subject: "New Message Submission",
       text: `\nEmail: ${email}\nMessage:${message}\n\nStored Data:\n${JSON.stringify(
         data.toObject(),
@@ -33,7 +30,13 @@ router.post("/send-message", async (req, res) => {
         2
       )}`,
     };
-    await transport.sendMail(mailOptions);
+    await transport.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("submitted");
+      }
+    });
 
     res.json({ success: true, message: "Message sent successfully!" });
   } catch (error) {
