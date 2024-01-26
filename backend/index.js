@@ -12,7 +12,7 @@ const multer = require("multer");
 dotenv.config({ path: path.join(__dirname, "./config/config.env") });
 
 // Connect to MongoDB
-//connectDatabase();
+connectDatabase();
 
 // Use multer to handle form data
 const upload = multer();
@@ -27,7 +27,7 @@ app.use(cors());
 app.use(astrology);
 app.use(Review);
 
-app.listen(process.env.PORT, () => {
+const server=app.listen(process.env.PORT, () => {
   console.log(`Server listening on port 8000 At ${process.env.NODE_ENV}`);
 });
 

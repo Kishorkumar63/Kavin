@@ -19,7 +19,7 @@ contactForm.addEventListener("submit", async (event) => {
     formData.append("number", number);
     formData.append("message", message);
 
-    const response = await fetch("http://localhost:8000/send-message", {
+    const response = await fetch("/send-message", {
       method: "POST",
       body: formData,
     });
