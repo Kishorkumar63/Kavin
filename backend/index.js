@@ -27,7 +27,7 @@ app.use(cors());
 app.use(astrology);
 app.use(Review);
 
-const server=app.listen(process.env.PORT, () => {
+const server=app.listen( () => {
   console.log(`Server listening on port ${process.env.PORT} At ${process.env.NODE_ENV}`);
 });
 
