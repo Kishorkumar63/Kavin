@@ -24,11 +24,7 @@ router.post("/send-review", async (req, res) => {
       from: `${name}`,
       to: "kishorkumar200313@gmail.com",
       subject: "New Message Submission",
-      text: `\nEmail: ${name}\nMessage:${message}\n\nStored Data:\n${JSON.stringify(
-        data.toObject(),
-        null,
-        2
-      )}`,
+      text: `\nEmail: ${name}\nMessage:${message}`
     };
     await transport.sendMail(mailOptions, (error, info) => {
       if (error) {
