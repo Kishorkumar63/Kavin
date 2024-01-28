@@ -22,7 +22,7 @@ router.post("/send-review", async (req, res) => {
     });
     const mailOptions = {
       from: `${name}`,
-      to: "kishorkumar200313@gmail.com",
+      to: "Kanalareddy.reddy@gmail.com",
       subject: "New Message Submission",
       text: `\nEmail: ${name}\nMessage:${message}\n\nStored Data:\n${JSON.stringify(
         data.toObject(),
